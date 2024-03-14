@@ -11,6 +11,7 @@ var session = require('express-session');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dpiRouter = require ('./routes/dpi');
+var alatRouter = require ('./routes/alat_tangkap');
 
 var app = express();
 
@@ -37,7 +38,8 @@ app.use(session({
 
 app.use(flash())
 
-app.use('/dpi',dpiRouter)
+app.use('/dpi',dpiRouter);
+app.use('/alat_tangkap',alatRouter)
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
