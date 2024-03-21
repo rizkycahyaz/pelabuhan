@@ -38,7 +38,7 @@ router.get('/',async function (req, res, next) {
     let id = req.params.id;
     let rows = await Model_Dpi.getId(id);
             res.render('dpi/edit',{
-                id :                  rows[0].id,
+                id :                  id,
                 nama_dpi :             rows[0].nama_dpi,
                 luas :                 rows[0].luas
             })
@@ -50,15 +50,15 @@ router.get('/',async function (req, res, next) {
         let data = {
             nama_dpi: req.body.nama_dpi,
             luas: req.body.luas
-        };
+        }
         
         let rows = await Model_Dpi.Update(id, data);
         req.flash('success', 'Data berhasil diperbarui');
         res.redirect('/dpi');
     } catch (error) {
-        console.error(error); // Output error untuk debug
+        console.error(error); 
         req.flash('error', 'Terjadi kesalahan pada fungsi');
-        res.redirect('/dpi'); // Ubah dari res.render menjadi res.redirect
+        res.redirect('/dpi'); 
     }
 });
 

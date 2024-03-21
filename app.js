@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 var flash = require('express-flash');
 var session = require('express-session');
+const MemoryStore = require('session-memory-store')(session);
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -27,11 +28,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(session({
   cookie: {
-    maxAge: 6000
+    maxAge: 60000000000,
+    secure: false,
+    sameSite: 'strict',
+    //domain: 'domainkkitananti.com',
   },
-    store: new session.MemoryStore,
+    store: new MemoryStore,
     saveUninitialized: true,
-    resave : 'true',
+    resave : 'false',
     secret: 'secret'
   
 }))

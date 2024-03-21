@@ -1,6 +1,6 @@
 const connection = require('../config/data');
 
-class Model_Kategori {
+class Model_Dpi {
 
     static async getAll() {
         return new Promise((resolve, reject) => {
@@ -65,4 +65,4 @@ class Model_Kategori {
 
 }
 
-module.exports = Model_Kategori;
+module.exports = Model_Dpi;

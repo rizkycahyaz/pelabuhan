@@ -37,7 +37,7 @@ router.get('/',async function (req, res, next) {
     let id = req.params.id;
     let rows = await Model_alat.getId(id);
             res.render('alat_tangkap/edit',{
-                id :                  rows[0].id,
+                id :                  id,
                 nama_alat_tangkap :             rows[0].nama_alat_tangkap
             })
   })
